@@ -1,9 +1,8 @@
 package com.mallall.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class PayInfo implements Serializable {
+public class PayInfo {
     private Integer id;
 
     private Integer userId;
@@ -19,8 +18,6 @@ public class PayInfo implements Serializable {
     private Date createTime;
 
     private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     public PayInfo(Integer id, Integer userId, Long orderNo, Integer payPlatform, String platformNumber, String platformStatus, Date createTime, Date updateTime) {
         this.id = id;
@@ -99,24 +96,5 @@ public class PayInfo implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", orderNo=").append(orderNo);
-        sb.append(", payPlatform=").append(payPlatform);
-        sb.append(", platformNumber=").append(platformNumber);
-        sb.append(", platformStatus=").append(platformStatus);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }

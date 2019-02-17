@@ -1,9 +1,8 @@
 package com.mallall.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Shipping implements Serializable {
+public class Shipping {
     private Integer id;
 
     private Integer userId;
@@ -27,8 +26,6 @@ public class Shipping implements Serializable {
     private Date createTime;
 
     private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     public Shipping(Integer id, Integer userId, String receiverName, String receiverPhone, String receiverMobile, String receiverProvince, String receiverCity, String receiverDistrict, String receiverAddress, String receiverZip, Date createTime, Date updateTime) {
         this.id = id;
@@ -143,28 +140,5 @@ public class Shipping implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", receiverName=").append(receiverName);
-        sb.append(", receiverPhone=").append(receiverPhone);
-        sb.append(", receiverMobile=").append(receiverMobile);
-        sb.append(", receiverProvince=").append(receiverProvince);
-        sb.append(", receiverCity=").append(receiverCity);
-        sb.append(", receiverDistrict=").append(receiverDistrict);
-        sb.append(", receiverAddress=").append(receiverAddress);
-        sb.append(", receiverZip=").append(receiverZip);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }

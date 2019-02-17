@@ -1,13 +1,10 @@
 package com.mallall.pojo;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class OrderItem implements Serializable {
+public class OrderItem {
     private Integer id;
-
-    private Integer userId;
 
     private Long orderNo;
 
@@ -27,11 +24,10 @@ public class OrderItem implements Serializable {
 
     private Date updateTime;
 
-    private static final long serialVersionUID = 1L;
+    private Integer userId;
 
-    public OrderItem(Integer id, Integer userId, Long orderNo, Integer productId, String productName, String productImage, BigDecimal currentUnitPrice, Integer quantity, BigDecimal totalPrice, Date createTime, Date updateTime) {
+    public OrderItem(Integer id, Long orderNo, Integer productId, String productName, String productImage, BigDecimal currentUnitPrice, Integer quantity, BigDecimal totalPrice, Date createTime, Date updateTime, Integer userId) {
         this.id = id;
-        this.userId = userId;
         this.orderNo = orderNo;
         this.productId = productId;
         this.productName = productName;
@@ -41,6 +37,7 @@ public class OrderItem implements Serializable {
         this.totalPrice = totalPrice;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.userId = userId;
     }
 
     public OrderItem() {
@@ -53,14 +50,6 @@ public class OrderItem implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public Long getOrderNo() {
@@ -135,25 +124,11 @@ public class OrderItem implements Serializable {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", orderNo=").append(orderNo);
-        sb.append(", productId=").append(productId);
-        sb.append(", productName=").append(productName);
-        sb.append(", productImage=").append(productImage);
-        sb.append(", currentUnitPrice=").append(currentUnitPrice);
-        sb.append(", quantity=").append(quantity);
-        sb.append(", totalPrice=").append(totalPrice);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

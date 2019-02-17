@@ -1,10 +1,9 @@
 package com.mallall.pojo;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Order implements Serializable {
+public class Order {
     private Integer id;
 
     private Long orderNo;
@@ -32,8 +31,6 @@ public class Order implements Serializable {
     private Date createTime;
 
     private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     public Order(Integer id, Long orderNo, Integer userId, Integer shippingId, BigDecimal payment, Integer paymentType, Integer postage, Integer status, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime) {
         this.id = id;
@@ -166,30 +163,5 @@ public class Order implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", orderNo=").append(orderNo);
-        sb.append(", userId=").append(userId);
-        sb.append(", shippingId=").append(shippingId);
-        sb.append(", payment=").append(payment);
-        sb.append(", paymentType=").append(paymentType);
-        sb.append(", postage=").append(postage);
-        sb.append(", status=").append(status);
-        sb.append(", paymentTime=").append(paymentTime);
-        sb.append(", sendTime=").append(sendTime);
-        sb.append(", endTime=").append(endTime);
-        sb.append(", closeTime=").append(closeTime);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }

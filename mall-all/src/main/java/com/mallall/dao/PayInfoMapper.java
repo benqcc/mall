@@ -1,10 +1,17 @@
 package com.mallall.dao;
 
 import com.mallall.pojo.PayInfo;
-import java.util.List;
 
 public interface PayInfoMapper {
+    int deleteByPrimaryKey(Integer id);
+
     int insert(PayInfo record);
 
-    List<PayInfo> selectAll();
+    int insertSelective(PayInfo record);
+
+    PayInfo selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(PayInfo record);
+
+    int updateByPrimaryKey(PayInfo record);
 }

@@ -1,9 +1,8 @@
 package com.mallall.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Cart implements Serializable {
+public class Cart {
     private Integer id;
 
     private Integer userId;
@@ -17,8 +16,6 @@ public class Cart implements Serializable {
     private Date createTime;
 
     private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     public Cart(Integer id, Integer userId, Integer productId, Integer quantity, Integer checked, Date createTime, Date updateTime) {
         this.id = id;
@@ -88,23 +85,5 @@ public class Cart implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", productId=").append(productId);
-        sb.append(", quantity=").append(quantity);
-        sb.append(", checked=").append(checked);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }

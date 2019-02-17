@@ -1,10 +1,9 @@
 package com.mallall.pojo;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Product implements Serializable {
+public class Product {
     private Integer id;
 
     private Integer categoryId;
@@ -28,8 +27,6 @@ public class Product implements Serializable {
     private Date createTime;
 
     private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     public Product(Integer id, Integer categoryId, String name, String subtitle, String mainImage, String subImages, String detail, BigDecimal price, Integer stock, Integer status, Date createTime, Date updateTime) {
         this.id = id;
@@ -144,28 +141,5 @@ public class Product implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", categoryId=").append(categoryId);
-        sb.append(", name=").append(name);
-        sb.append(", subtitle=").append(subtitle);
-        sb.append(", mainImage=").append(mainImage);
-        sb.append(", subImages=").append(subImages);
-        sb.append(", detail=").append(detail);
-        sb.append(", price=").append(price);
-        sb.append(", stock=").append(stock);
-        sb.append(", status=").append(status);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }
