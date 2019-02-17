@@ -17,4 +17,8 @@ public interface UserService {
     Result<String> register(User user);
 
     Result<String> checkValid(String str,String type);
+
+    Result<String> selectQuestion(String userName);
+
+    Result<String> checkAnswer(String userName,String question,String answer);
 }

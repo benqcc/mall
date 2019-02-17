@@ -37,27 +37,50 @@ public class UserController {
     public Result login(User user, HttpSession session) {
         Result<User> userResult = userService.login(user);
         if (userResult.isSuccess()) {
-            session.setAttribute(Const.CURRENT_USER,userResult.getData());
+            session.setAttribute(Const.CURRENT_USER, userResult.getData());
         }
         return userResult;
     }
 
     @RequestMapping(value = "logout.do", method = RequestMethod.GET)
     @ResponseBody
-    public Result<String> logout(HttpSession session){
+    public Result<String> logout(HttpSession session) {
         session.removeAttribute(Const.CURRENT_USER);
         return Result.createBySuccess();
     }
 
     @RequestMapping(value = "register.do", method = RequestMethod.GET)
     @ResponseBody
-    public Result<String> register(User user){
+    public Result<String> register(User user) {
         return userService.register(user);
     }
 
     @RequestMapping(value = "check_valid.do", method = RequestMethod.GET)
     @ResponseBody
-    public Result<String> checkValid(String str,String type){
-        return userService.checkValid(str,type);
+    public Result<String> checkValid(String str, String type) {
+        return userService.checkValid(str, type);
     }
+
+    @RequestMapping(value = "get_user_info.do", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<User> getUserInfo(HttpSession session) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user != null) {
+            return Result.createBySuccess(user);
+        }
+        return Result.createByErrorMessage("用户未登录,无法获取到当前用户的信息");
+    }
+
+    @RequestMapping(value = "forget_get_question", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<String> forgetGetQuestion(String userName) {
+        return userService.selectQuestion(userName);
+    }
+
+    @RequestMapping(value = "forget_check_answer", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<String> forgetCheckAnswer(String userName, String question, String answer) {
+        return userService.checkAnswer(userName, question, answer);
+    }
+
 }
