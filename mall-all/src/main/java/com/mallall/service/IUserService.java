@@ -10,7 +10,7 @@ import com.mallall.pojo.User;
  * @create: 2019-02-17 19:49
  * @Version: 1.0
  **/
-public interface UserService {
+public interface IUserService {
 
     Result<User> login(User user);
 
@@ -21,4 +21,10 @@ public interface UserService {
     Result<String> selectQuestion(String userName);
 
     Result<String> checkAnswer(String userName,String question,String answer);
+
+    Result<String> forgetRestPassword(String userName,String passwordNew,String token);
+
+    Result<String> restPassword(String passwordOld,String passwordNew,User user);
+
+    Result<User> updateInformation(User user);
 }

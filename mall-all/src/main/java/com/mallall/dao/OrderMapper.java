@@ -1,10 +1,12 @@
 package com.mallall.dao;
 
 import com.mallall.pojo.Order;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);
 

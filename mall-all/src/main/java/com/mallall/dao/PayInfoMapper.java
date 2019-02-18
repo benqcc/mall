@@ -1,7 +1,9 @@
 package com.mallall.dao;
 
 import com.mallall.pojo.PayInfo;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface PayInfoMapper {
     int deleteByPrimaryKey(Integer id);
 

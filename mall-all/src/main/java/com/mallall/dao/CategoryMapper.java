@@ -4,6 +4,7 @@ import com.mallall.pojo.Category;
 
 import java.util.List;
 
+
 public interface CategoryMapper {
     int deleteByPrimaryKey(Integer id);
 
