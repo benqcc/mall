@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -18,16 +20,16 @@ public class PropertiesUtil {
     private static Properties props;
 
     static {
-        String fileName = "mmall.properties";
+        String fileName = "static/mmall.properties";
         props = new Properties();
         try {
-            props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName),"UTF-8"));
+            props.load(new InputStreamReader(Objects.requireNonNull(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName)), StandardCharsets.UTF_8));
         } catch (IOException e) {
             logger.error("配置文件读取异常",e);
         }
     }
 
-    public static String getProperty(String key){
+    static String getProperty(String key){
         String value = props.getProperty(key.trim());
         if(StringUtils.isBlank(value)){
             return null;
@@ -35,7 +37,7 @@ public class PropertiesUtil {
         return value.trim();
     }
 
-    public static String getProperty(String key,String defaultValue){
+    static String getProperty(String key, String defaultValue){
 
         String value = props.getProperty(key.trim());
         if(StringUtils.isBlank(value)){

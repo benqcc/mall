@@ -49,8 +49,8 @@ public class UserServiceImpl implements IUserService {
         if (!stringResult.isSuccess()) {
             return stringResult;
         }
-        Result<String> stringResult1 = this.checkValid(user.getEmail(), Const.EMAIL);
-        if (!stringResult1.isSuccess()) {
+        stringResult = this.checkValid(user.getEmail(), Const.EMAIL);
+        if (!stringResult.isSuccess()) {
             return stringResult;
         }
         user.setRole(Const.Role.ROLE_CUSTOMER);
@@ -103,11 +103,11 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Result<String> checkAnswer(String userName, String question, String answer) {
-        int resultCount = userMapper.checkAnswer(userName,question,answer);
-        if(resultCount >0){
+        int resultCount = userMapper.checkAnswer(userName, question, answer);
+        if (resultCount > 0) {
             //说明问题及问题答案是这个用户的,并且是正确的
             String forgetToken = UUID.randomUUID().toString();
-            TokenCache.setKey(TokenCache.TOKEN_PREFIX+userName,forgetToken);
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX + userName, forgetToken);
             return Result.createBySuccess(forgetToken);
         }
         return Result.createByErrorMessage("问题的答案是错误的");
@@ -115,7 +115,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Result<String> forgetRestPassword(String userName, String passwordNew, String token) {
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             return Result.createByErrorMessage("参数错误,token不能为空");
         }
         Result<String> stringResult = this.checkValid(userName, Const.USERNAME);
@@ -124,16 +124,16 @@ public class UserServiceImpl implements IUserService {
             return Result.createByErrorMessage("用户不存在");
         }
         String key = TokenCache.getKey(TokenCache.TOKEN_PREFIX + userName);
-        if(StringUtils.isBlank(key)){
+        if (StringUtils.isBlank(key)) {
             return Result.createByErrorMessage("token无效或者过期");
         }
-        if(StringUtils.equals(token,key)){
+        if (StringUtils.equals(token, key)) {
             String md5Password = MD5Util.MD5EncodeUtf8(passwordNew);
-            int rowCount = userMapper.updatePasswordByUsername(userName,md5Password);
-            if(rowCount >0){
+            int rowCount = userMapper.updatePasswordByUsername(userName, md5Password);
+            if (rowCount > 0) {
                 return Result.createBySuccessMessage("修改密码成功");
             }
-        }else{
+        } else {
             return Result.createByErrorMessage("token错误,请重新获取重置密码的token");
         }
         return Result.createByErrorMessage("修改密码失败");
@@ -142,13 +142,13 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Result<String> restPassword(String passwordOld, String passwordNew, User user) {
         //防止横向越权,要校验一下这个用户的旧密码,一定要指定的是这个用户,因为我们会查询一个count(1),如果不指定id,那么结果就是true,count>0
-        int resultCount = userMapper.checkPassword(MD5Util.MD5EncodeUtf8(passwordOld),user.getId());
-        if(resultCount == 0){
+        int resultCount = userMapper.checkPassword(MD5Util.MD5EncodeUtf8(passwordOld), user.getId());
+        if (resultCount == 0) {
             return Result.createByErrorMessage("密码错误");
         }
         user.setPassword(MD5Util.MD5EncodeUtf8(passwordNew));
         int updateCount = userMapper.updateByPrimaryKeySelective(user);
-        if(updateCount >0){
+        if (updateCount > 0) {
             return Result.createBySuccessMessage("密码更新成功");
         }
         return Result.createByErrorMessage("密码更新失败");
@@ -157,8 +157,8 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Result<User> updateInformation(User user) {
         //userName不能被更新,email是不是已经存在,并且存在的email如果相同的话,不能是当前用户的
-        int resultCount = userMapper.checkEmailByUserId(user.getEmail(),user.getId());
-        if(resultCount >0){
+        int resultCount = userMapper.checkEmailByUserId(user.getEmail(), user.getId());
+        if (resultCount > 0) {
             return Result.createByErrorMessage("email已存在,请更换email再重试");
         }
         User updateUser = new User();
@@ -169,8 +169,8 @@ public class UserServiceImpl implements IUserService {
         updateUser.setAnswer(updateUser.getAnswer());
 
         int updateCount = userMapper.updateByPrimaryKeySelective(updateUser);
-        if(updateCount >0){
-            return Result.createBySuccess("更新个人信息成功",updateUser);
+        if (updateCount > 0) {
+            return Result.createBySuccess("更新个人信息成功", updateUser);
         }
         return Result.createByErrorMessage("更新个人信息失败");
     }

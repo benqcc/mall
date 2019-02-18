@@ -26,7 +26,7 @@ public class UserManagerController {
     @Autowired
     private IUserService iUserService;
 
-    @RequestMapping(value = "login.do", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     @ResponseBody
     public Result<User> login(User user, HttpSession session){
         Result<User> userResult = iUserService.login(user);
