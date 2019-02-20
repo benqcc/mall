@@ -25,27 +25,26 @@ public class PropertiesUtil {
         try {
             props.load(new InputStreamReader(Objects.requireNonNull(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName)), StandardCharsets.UTF_8));
         } catch (IOException e) {
-            logger.error("配置文件读取异常",e);
+            logger.error("配置文件读取异常", e);
         }
     }
 
-    static String getProperty(String key){
+    public static String getProperty(String key) {
         String value = props.getProperty(key.trim());
-        if(StringUtils.isBlank(value)){
+        if (StringUtils.isBlank(value)) {
             return null;
         }
         return value.trim();
     }
 
-    static String getProperty(String key, String defaultValue){
+    public static String getProperty(String key, String defaultValue) {
 
         String value = props.getProperty(key.trim());
-        if(StringUtils.isBlank(value)){
+        if (StringUtils.isBlank(value)) {
             value = defaultValue;
         }
         return value.trim();
     }
-
 
 
 }
