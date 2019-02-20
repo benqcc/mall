@@ -18,15 +18,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from mallall_category
+    from mmall_category
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from mallall_category
+    delete from mmall_category
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.mallall.pojo.Category" >
-    insert into mallall_category (id, parent_id, name,
+    insert into mmall_category (id, parent_id, name,
       status, sort_order, create_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
@@ -34,7 +34,7 @@
       now())
   </insert>
   <insert id="insertSelective" parameterType="com.mallall.pojo.Category" >
-    insert into mallall_category
+    insert into mmall_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -83,7 +83,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mallall.pojo.Category" >
-    update mallall_category
+    update mmall_category
     <set >
       <if test="parentId != null" >
         parent_id = #{parentId,jdbcType=INTEGER},
@@ -107,7 +107,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mallall.pojo.Category" >
-    update mallall_category
+    update mmall_category
     set parent_id = #{parentId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       status = #{status,jdbcType=BIT},
@@ -120,7 +120,7 @@
   <select id="selectCategoryChildrenByParentId" resultMap="BaseResultMap" parameterType="int">
     select
     <include refid="Base_Column_List"/>
-    from mallall_category
+    from mmall_category
     where parent_id = #{parentId}
   </select>
 

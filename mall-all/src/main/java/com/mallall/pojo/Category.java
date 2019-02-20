@@ -1,6 +1,7 @@
 package com.mallall.pojo;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Category {
     private Integer id;
@@ -95,7 +96,7 @@ public class Category {
 
         Category category = (Category) o;
 
-        return !(id != null ? !id.equals(category.id) : category.id != null);
+        return Objects.equals(id, category.id);
 
     }
 

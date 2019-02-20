@@ -27,4 +27,6 @@ public interface IUserService {
     Result<String> restPassword(String passwordOld,String passwordNew,User user);
 
     Result<User> updateInformation(User user);
+
+    Result checkAdminRole(User user);
 }

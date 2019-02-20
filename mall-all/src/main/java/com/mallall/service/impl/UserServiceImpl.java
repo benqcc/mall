@@ -174,4 +174,17 @@ public class UserServiceImpl implements IUserService {
         }
         return Result.createByErrorMessage("更新个人信息失败");
     }
+
+    /**
+     * 校验是否是管理员
+     * @param user
+     * @return
+     */
+    @Override
+    public Result checkAdminRole(User user) {
+        if(user !=null && user.getRole() == Const.Role.ROLE_ADMIN){
+            return Result.createBySuccess();
+        }
+        return Result.createByError();
+    }
 }
