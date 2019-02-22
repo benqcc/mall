@@ -17,31 +17,35 @@ public class CartVo {
         return cartProductVoList;
     }
 
-    public void setCartProductVoList(List<CartProductVo> cartProductVoList) {
+    public CartVo setCartProductVoList(List<CartProductVo> cartProductVoList) {
         this.cartProductVoList = cartProductVoList;
+        return this;
     }
 
     public BigDecimal getCartTotalPrice() {
         return cartTotalPrice;
     }
 
-    public void setCartTotalPrice(BigDecimal cartTotalPrice) {
+    public CartVo setCartTotalPrice(BigDecimal cartTotalPrice) {
         this.cartTotalPrice = cartTotalPrice;
+        return this;
     }
 
     public Boolean getAllChecked() {
         return allChecked;
     }
 
-    public void setAllChecked(Boolean allChecked) {
+    public CartVo setAllChecked(Boolean allChecked) {
         this.allChecked = allChecked;
+        return this;
     }
 
     public String getImageHost() {
         return imageHost;
     }
 
-    public void setImageHost(String imageHost) {
+    public CartVo setImageHost(String imageHost) {
         this.imageHost = imageHost;
+        return this;
     }
 }

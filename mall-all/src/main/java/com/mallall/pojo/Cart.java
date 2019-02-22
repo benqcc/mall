@@ -35,55 +35,62 @@ public class Cart {
         return id;
     }
 
-    public void setId(Integer id) {
+    public Cart setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public Cart setUserId(Integer userId) {
         this.userId = userId;
+        return this;
     }
 
     public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public Cart setProductId(Integer productId) {
         this.productId = productId;
+        return this;
     }
 
     public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public Cart setQuantity(Integer quantity) {
         this.quantity = quantity;
+        return this;
     }
 
     public Integer getChecked() {
         return checked;
     }
 
-    public void setChecked(Integer checked) {
+    public Cart setChecked(Integer checked) {
         this.checked = checked;
+        return this;
     }
 
     public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public Cart setCreateTime(Date createTime) {
         this.createTime = createTime;
+        return this;
     }
 
     public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public Cart setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+        return this;
     }
 }

@@ -28,103 +28,116 @@ public class CartProductVo {
         return id;
     }
 
-    public void setId(Integer id) {
+    public CartProductVo setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public CartProductVo setUserId(Integer userId) {
         this.userId = userId;
+        return this;
     }
 
     public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public CartProductVo setProductId(Integer productId) {
         this.productId = productId;
+        return this;
     }
 
     public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public CartProductVo setQuantity(Integer quantity) {
         this.quantity = quantity;
+        return this;
     }
 
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
+    public CartProductVo setProductName(String productName) {
         this.productName = productName;
+        return this;
     }
 
     public String getProductSubtitle() {
         return productSubtitle;
     }
 
-    public void setProductSubtitle(String productSubtitle) {
+    public CartProductVo setProductSubtitle(String productSubtitle) {
         this.productSubtitle = productSubtitle;
+        return this;
     }
 
     public String getProductMainImage() {
         return productMainImage;
     }
 
-    public void setProductMainImage(String productMainImage) {
+    public CartProductVo setProductMainImage(String productMainImage) {
         this.productMainImage = productMainImage;
+        return this;
     }
 
     public BigDecimal getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(BigDecimal productPrice) {
+    public CartProductVo setProductPrice(BigDecimal productPrice) {
         this.productPrice = productPrice;
+        return this;
     }
 
     public Integer getProductStatus() {
         return productStatus;
     }
 
-    public void setProductStatus(Integer productStatus) {
+    public CartProductVo setProductStatus(Integer productStatus) {
         this.productStatus = productStatus;
+        return this;
     }
 
     public BigDecimal getProductTotalPrice() {
         return productTotalPrice;
     }
 
-    public void setProductTotalPrice(BigDecimal productTotalPrice) {
+    public CartProductVo setProductTotalPrice(BigDecimal productTotalPrice) {
         this.productTotalPrice = productTotalPrice;
+        return this;
     }
 
     public Integer getProductStock() {
         return productStock;
     }
 
-    public void setProductStock(Integer productStock) {
+    public CartProductVo setProductStock(Integer productStock) {
         this.productStock = productStock;
+        return this;
     }
 
     public Integer getProductChecked() {
         return productChecked;
     }
 
-    public void setProductChecked(Integer productChecked) {
+    public CartProductVo setProductChecked(Integer productChecked) {
         this.productChecked = productChecked;
+        return this;
     }
 
     public String getLimitQuantity() {
         return limitQuantity;
     }
 
-    public void setLimitQuantity(String limitQuantity) {
+    public CartProductVo setLimitQuantity(String limitQuantity) {
         this.limitQuantity = limitQuantity;
+        return this;
     }
 }
