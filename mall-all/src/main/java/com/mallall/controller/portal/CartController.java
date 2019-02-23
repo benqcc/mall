@@ -8,7 +8,6 @@ import com.mallall.service.ICartService;
 import com.mallall.vo.CartVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
@@ -28,7 +27,7 @@ public class CartController {
     private ICartService iCartService;
 
     @RequestMapping(value = "add")
-    @ResponseBody
+    
     public Result<CartVo> add(
             HttpSession session,
             Integer count,
@@ -43,7 +42,7 @@ public class CartController {
 
 
     @RequestMapping(value = "edit")
-    @ResponseBody
+    
     public Result<CartVo> edit(
             HttpSession session,
             Integer count,
@@ -57,7 +56,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "delete")
-    @ResponseBody
+    
     public Result<CartVo> delete(
             HttpSession session,
             String productIds
@@ -70,7 +69,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "find")
-    @ResponseBody
+    
     public Result<CartVo> findCartList(
             HttpSession session
     ) {
@@ -83,7 +82,7 @@ public class CartController {
 
 
     @RequestMapping(value = "selectAll")
-    @ResponseBody
+    
     public Result<CartVo> selectAll(
             HttpSession session
     ) {
@@ -95,7 +94,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "unSelectAll")
-    @ResponseBody
+    
     public Result<CartVo> unSelectAll(
             HttpSession session
     ) {
@@ -107,7 +106,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "unSelect")
-    @ResponseBody
+    
     public Result<CartVo> unSelect(
             HttpSession session,
             Integer productId
@@ -120,7 +119,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "select")
-    @ResponseBody
+    
     public Result<CartVo> select(
             HttpSession session,
             Integer productId
@@ -133,7 +132,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "getCartProductCount")
-    @ResponseBody
+    
     public Result<Integer> getCartProductCount(
             HttpSession session
     ) {
