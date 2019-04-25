@@ -46,7 +46,7 @@ public class ShippingController {
         return iShippingService.delete(user.getId(),shippingId);
     }
 
-    @RequestMapping(value = "add")
+    @RequestMapping(value = "adds")
     public Result edit(HttpSession session, Shipping shipping) {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
@@ -76,4 +76,5 @@ public class ShippingController {
         }
         return iShippingService.findShippingPage(user.getId(),pageNum,pageSize);
     }
+
 }

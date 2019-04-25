@@ -31,6 +31,7 @@ public class CategoryManageController {
     @Autowired
     private ICategoryService iCategoryService;
 
+
     @RequestMapping(value = "add_category")
     @ResponseBody
     public Result addCategory(HttpSession session, String categoryName, @RequestParam(value = "parentId", defaultValue = "0") int parentId) {
